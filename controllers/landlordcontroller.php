@@ -1,5 +1,5 @@
 <?php
-require_once 'sendEmails.php';
+require_once 'lansendemails.php';
 session_start();
 $username = "";
 $email = "";
@@ -29,7 +29,7 @@ if (isset($_POST['signup-btn'])) {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
 
     // Check if email already exists
-    $sql = "SELECT * FROM tenants WHERE email='$email' LIMIT 1";
+    $sql = "SELECT * FROM landlords WHERE email='$email' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $errors['email'] = "Email already exists";
@@ -37,7 +37,7 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO tenants SET username=?, email=?, token=?, password=?";
+        $query = "INSERT INTO landlords SET username=?, email=?, token=?, password=?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('ssss', $username, $email, $token, $password);
         $result = $stmt->execute();
@@ -49,13 +49,15 @@ if (isset($_POST['signup-btn'])) {
             // TO DO: send verification email to user
             sendVerificationEmail($email, $token);
                
-            $_SESSION['tenantid'] = $user_tenantid;
+            $_SESSION['lanid'] = $user_lanid;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['verified'] = false;
             $_SESSION['message'] = 'You are logged in!';
             $_SESSION['type'] = 'alert-success';
-            header('location: index.php');
+            echo "<script>alert('Successfully registered.');</script>";
+            header('location: welcomelandlord.php');
+
         } else {
             $_SESSION['error_msg'] = "Database error: Could not register user";
         }
@@ -74,7 +76,7 @@ if (isset($_POST['login-btn'])) {
     $password = $_POST['password'];
 
     if (count($errors) === 0) {
-        $query = "SELECT * FROM tenants WHERE username=? OR email=? LIMIT 1";
+        $query = "SELECT * FROM landlords WHERE username=? OR email=? LIMIT 1";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('ss', $username, $password);
 
@@ -84,13 +86,13 @@ if (isset($_POST['login-btn'])) {
             if (password_verify($password, $user['password'])) { // if password matches
                 $stmt->close();
 
-                $_SESSION['tenantid'] = $user['tenantid'];
+                $_SESSION['lanid'] = $user['lanid'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION['verified'] = $user['verified'];
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
-                header('location: index.php');
+                header('location: welcomelandlord.php');
                 exit(0);
             } else { // if password does not match
                 $errors['login_fail'] = "Wrong username / password";

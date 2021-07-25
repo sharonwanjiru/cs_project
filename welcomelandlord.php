@@ -1,8 +1,8 @@
-<?php include 'controllers/authController.php'?>
+<?php include 'controllers/landlordcontroller.php'?>
 <?php
 // redirect user to login page if they're not logged in
-if (empty($_SESSION['tenantid'])) {
-    header('location: login.php');
+if (empty($_SESSION['lanid'])) {
+    header('location: landlordlogin.php');
 }
 ?>
 <!DOCTYPE html>

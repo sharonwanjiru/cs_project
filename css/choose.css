@@ -1,0 +1,56 @@
+
+    nav{
+        background:  black;
+        height: 80px;
+        width: 100%;
+    
+    }
+    .logo{
+      color: white;
+      font-size: 35px;
+      line-height: 80px;
+      padding: 0 100px;
+    }
+    
+    
+    .choose{
+        
+        width:300px;
+        height: 300px;
+         top: 50%;
+        left: 50%;
+         position: absolute;
+        transform: translate(-50%,-49%);
+        padding: 70px 30px;
+    
+    
+    }
+    h1{
+        color:yellow;
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 3em;
+        font-family: 'Satisfy', cursive;
+    
+    }
+    .button{
+        
+        border-radius:0 30px 0 30px;
+        height: 40px;
+        width: 100px;
+        position: center;
+        font-size: 17px;
+    
+        
+    }
+    nav ul{
+        float: right;
+        margin-right: 20px;
+    }
+    nav ul li{
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 20px;
+    }
+    
