@@ -44,15 +44,20 @@ if (empty($_SESSION['lanid'])) {
 .active {
   background-color: red;
 }
+.rounded-corners {
+  border-radius: 160px;
+  overflow: hidden;
+}
 </style>
 </head>
 
 <body>
 <ul class=navi>
         <li class=nav><a  href="#home">Home</a></li>
-        <li class=nav><a href="#contact">Profile</a></li>
-        <li class= nav><a href="#about">About</a></li>
-        <li class=nav style="float:right"><a class="active" href="logout.php">Logout</a></li>
+        <li class=nav><a href="landlordprofile.php">Profile</a></li>
+        <li class= nav><a href="logout.php">Logout</a></li>
+        <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+                width="50px" height="50px"></li>
         </ul>
 
   <div class="container">
@@ -70,6 +75,10 @@ if (empty($_SESSION['lanid'])) {
         </div>
         <?php endif;?>
         <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
+        <!--
+         <?php echo $_SESSION['image']; ?>
+        <img src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+                width="100px" height="100px">-->
         <!--for unactivated accounts -->
         <?php if (!$_SESSION['verified']): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
