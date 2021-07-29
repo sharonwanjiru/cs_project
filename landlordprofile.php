@@ -106,8 +106,13 @@
                                         <div class="form-group">
                                             <input type="text" name="updateUserName" class="form-control" value="<?php echo $row['username']; ?>">
                                         </div>
+                                        
                                         <div class="form-group">
                                             <input type="email" name="userEmail" class="form-control" value="<?php echo $row['email']; ?>">
+                                        </div>
+                                
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control" value="<?php echo $row['password']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <input type="file" name="userImage" class="form-control">

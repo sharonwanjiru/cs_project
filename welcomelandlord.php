@@ -75,6 +75,7 @@ if (empty($_SESSION['lanid'])) {
         </div>
         <?php endif;?>
         <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
+        <a href="createhouse.php">Create</a>
         <!--
          <?php echo $_SESSION['image']; ?>
         <img src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
