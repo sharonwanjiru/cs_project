@@ -3,6 +3,7 @@ require_once 'lansendemails.php';
 session_start();
 $username = "";
 $email = "";
+
 $errors = [];
 
 $conn = new mysqli('localhost', 'root', '', 'cs_project');
@@ -66,19 +67,20 @@ if (isset($_POST['signup-btn'])) {
 
 // LOGIN
 if (isset($_POST['login-btn'])) {
-    if (empty($_POST['username'])) {
-        $errors['username'] = 'Username or email required';
+    if (empty($_POST['email'])) {
+        $errors['email'] = ' email required';
     }
     if (empty($_POST['password'])) {
         $errors['password'] = 'Password required';
     }
-    $username = $_POST['username'];
+    //$username = $_POST['username'];
+     $email = $_POST['email'];
     $password = $_POST['password'];
 
     if (count($errors) === 0) {
-        $query = "SELECT * FROM landlords WHERE username=? OR email=? LIMIT 1";
+        $query = "SELECT * FROM landlords WHERE email=? OR username=? LIMIT 1";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ss', $username, $password);
+        $stmt->bind_param('ss', $email, $password);
 
         if ($stmt->execute()) {
             $result = $stmt->get_result();

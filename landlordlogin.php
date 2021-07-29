@@ -26,8 +26,8 @@
         <h3 class="text-center form-title">Login</h3>
         <form action="landlordlogin.php" method="post">
           <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control form-control-lg" value="<?php echo $username; ?>">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control form-control-lg" value="<?php echo $email; ?>">
           </div>
           <div class="form-group">
             <label>Password</label>
