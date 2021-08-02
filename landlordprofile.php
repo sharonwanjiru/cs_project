@@ -108,12 +108,9 @@
                                         </div>
                                         
                                         <div class="form-group">
-                                            <input type="email" name="userEmail" class="form-control" value="<?php echo $row['email']; ?>">
+                                            <input type="email" name="userEmail" class="form-control" value="<?php echo $row['email']; ?> " readonly>
                                         </div>
-                                
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control" value="<?php echo $row['password']; ?>">
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <input type="file" name="userImage" class="form-control">
                                         </div>
@@ -121,6 +118,7 @@
                                         <div class="form-group">
                                             <input type="submit" name="update"  class="btn btn-info" value="Update">
                                         </div>
+                                        <p>change_password <a href="passchange.php">Change</a></p>
                                     <?php
                                 }
                             }

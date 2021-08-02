@@ -9,7 +9,7 @@ if(isset($_POST['update'])){
 
          $userNewName  =    $_POST['updateUserName'];
          $userNewEmail =    $_POST['userEmail'];
-         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
          $userImage    =   $_FILES['userImage'];
 
         if(!empty($userNewName) && !empty($userNewEmail)){
@@ -39,7 +39,7 @@ if(isset($_POST['update'])){
                     if($uploaded){
                         $loggedInUser = $_SESSION['username'];
                         
-                        $sql = "UPDATE landlords SET username = '$userNewName', email ='$userNewEmail', image='$imageName',password='$password' WHERE username = '$loggedInUser'";
+                        $sql = "UPDATE landlords SET username = '$userNewName', email ='$userNewEmail', image='$imageName' WHERE username = '$loggedInUser'";
 
                         $results = mysqli_query($conn,$sql);
 
