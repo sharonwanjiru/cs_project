@@ -43,25 +43,25 @@ if(isset($_POST['update'])){
 
                         $results = mysqli_query($conn,$sql);
 
-                        header('Location:../landlordprofile.php?success=userUpdated');
+                        header('Location:./landlordprofile.php?success=userUpdated');
                     exit;
                     }
 
 
                 }else{
-                    header('Location:../landlordprofile.php?error=invalidFileSize');
+                    header('Location:./landlordprofile.php?error=invalidFileSize');
                     exit;
                 }
                 exit;
             }else{
-                header('Location:../landlordprofile.php?error=invalidFileType');
+                header('Location:./landlordprofile.php?error=invalidFileType');
                 exit;
             }
             
 
 
         }else{
-            header('Location:../landlordprofile.php?error=emptyNameAndEmail');
+            header('Location:controllers/landlordprofile.php?error=emptyNameAndEmail');
             exit;
         }
         

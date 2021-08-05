@@ -38,6 +38,7 @@
           </div>
         </form>
         <p>Don't yet have an account? <a href="signup.php">Sign up</a></p>
+        <p><a href="reset.php">Forgot your password?</a></p>
       </div>
     </div>
   </div>

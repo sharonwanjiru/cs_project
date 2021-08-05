@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '05c113cd4960deb064d3ab2725f353d9cf5b7694',
+    'reference' => '74a50ee2cb1c697f2f4f9be8d8a90e68f50f5334',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '05c113cd4960deb064d3ab2725f353d9cf5b7694',
+      'reference' => '74a50ee2cb1c697f2f4f9be8d8a90e68f50f5334',
     ),
     'doctrine/lexer' => 
     array (
@@ -37,6 +37,15 @@
       array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
+    ),
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.5.0',
+      'version' => '6.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a5b5c43e50b7fba655f793ad27303cd74c57363c',
     ),
     'swiftmailer/swiftmailer' => 
     array (
