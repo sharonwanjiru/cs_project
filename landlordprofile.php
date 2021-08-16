@@ -93,15 +93,15 @@
                       enctype="multipart/form-data"
                 >
                     <?php
-                        $currentUser = $_SESSION['username'];
-                        $sql = "SELECT * FROM landlords WHERE username ='$currentUser'";
+                        $currentUser = $_SESSION['email'];
+                        $sql = "SELECT * FROM landlords WHERE email ='$currentUser'";
 
                         $gotResuslts = mysqli_query($conn,$sql);
 
                         if($gotResuslts){
                             if(mysqli_num_rows($gotResuslts)>0){
                                 while($row = mysqli_fetch_array($gotResuslts)){
-                                    //print_r($row['user_name']);
+                                    print_r($row['email']);
                                     ?>
                                         <div class="form-group">
                                             <input type="text" name="updateUserName" class="form-control" value="<?php echo $row['username']; ?>">

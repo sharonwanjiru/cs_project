@@ -5,6 +5,8 @@ $username = "";
 $email = "";
 $errors = [];
 
+
+
 $conn = new mysqli('localhost', 'root', '', 'cs_project');
 
 // SIGN UP USER
@@ -90,7 +92,7 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['verified'] = $user['verified'];
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
-                header('location: index.php');
+                header('location: tenantindex.php');
                 exit(0);
             } else { // if password does not match
                 $errors['login_fail'] = "Wrong username / password";

@@ -43,7 +43,7 @@ if(isset($_POST['update'])){
 
                         $results = mysqli_query($conn,$sql);
 
-                        header('Location:./landlordprofile.php?success=userUpdated');
+                        header('Location:localhost/cs_project/landlordprofile.php?success=userUpdated');
                     exit;
                     }
 
