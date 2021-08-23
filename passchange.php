@@ -30,17 +30,30 @@ session_start();
 .active {
   background-color: red;
 }
-.rounded-image {
+.rounded-corners {
   border-radius: 160px;
   overflow: hidden;
 }
 </style>
 <ul class=navi>
-        <li class=nav><a  href="#home">Home</a></li>
+        <li class=nav><a  href="welcomelandlord.php">Home</a></li>
         <li class=nav><a href="landlordprofile.php">Profile</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
-        <li class=nav style="float:right"> <img class="rounded-image" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+        <?php
+        if (empty($_SESSION['image'])) {
+          ?>
+          <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/nophoto.jpg" alt="" 
                 width="50px" height="50px"></li>
+          <?php  
+      }
+      else
+      {
+        ?>
+        <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+                width="50px" height="50px"></li>
+                <?php
+                }
+                ?>
         </ul>
 
 

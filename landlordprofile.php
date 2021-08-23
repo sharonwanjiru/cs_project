@@ -1,6 +1,7 @@
 <?php
     session_start();
     include('config/db.php');
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,16 +41,34 @@
   border-radius: 160px;
   overflow: hidden;
 }
+.rounded-corners {
+  border-radius: 160px;
+  overflow: hidden;
+}
 </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <ul class=navi>
-        <li class=nav><a  href="#home">Home</a></li>
+        <li class=nav><a  href="welcomelandlord.php">Home</a></li>
         <li class=nav><a href="landlordprofile.php">Profile</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
-        <li class=nav style="float:right"> <img class="rounded-image" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+        <?php
+        if (empty($_SESSION['image'])) {
+          ?>
+          <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/nophoto.jpg" alt="" 
                 width="50px" height="50px"></li>
+          <?php  
+      }
+      else
+      {
+        ?>
+        <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+                width="50px" height="50px"></li>
+                <?php
+                }
+                ?>
         </ul>
 
     <div align="center">
@@ -58,8 +77,10 @@
        <hr>
         <div class="row">
             <div class="col-md-6 offset-3">
+
+              
                 <?php
-                if($_GET['success']){
+                if(isset($_GET['success'])){
                     if($_GET['success'] == 'userUpdated'){
                         ?>
                         <small class="alert alert-success"> User updated Successfully</small>
@@ -88,29 +109,27 @@
                     }
                 }
                 ?>
-                <form action="controllers/landlordprofileupdate.php"
+                <form action="landlordprofileupdate.php"
                       method="POST"
                       enctype="multipart/form-data"
                 >
                     <?php
-                        $currentUser = $_SESSION['email'];
-                        $sql = "SELECT * FROM landlords WHERE email ='$currentUser'";
+                        $currentUser = $_SESSION['username'];
+                        $sql = "SELECT * FROM landlords WHERE username ='$currentUser'";
 
                         $gotResuslts = mysqli_query($conn,$sql);
 
                         if($gotResuslts){
                             if(mysqli_num_rows($gotResuslts)>0){
                                 while($row = mysqli_fetch_array($gotResuslts)){
-                                    print_r($row['email']);
+                                    //print_r($row['user_name']);
                                     ?>
                                         <div class="form-group">
                                             <input type="text" name="updateUserName" class="form-control" value="<?php echo $row['username']; ?>">
                                         </div>
-                                        
                                         <div class="form-group">
-                                            <input type="email" name="userEmail" class="form-control" value="<?php echo $row['email']; ?> " readonly>
+                                            <input type="email" name="userEmail" class="form-control" value="<?php echo $row['email']; ?>" readonly>
                                         </div>
-                                        
                                         <div class="form-group">
                                             <input type="file" name="userImage" class="form-control">
                                         </div>
@@ -126,14 +145,14 @@
 
 
                     ?>
-                
+
                 </form>
             </div>
-            
+
         </div>
 
 
     </div>
-    
+
 </body>
-</html>
+</html> 

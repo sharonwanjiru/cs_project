@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 if(isset($_POST['update'])){
 
-        include('../config/db.php');
+        include('config/db.php');
 
          $userNewName  =    $_POST['updateUserName'];
          $userNewEmail =    $_POST['userEmail'];
@@ -32,7 +32,7 @@ if(isset($_POST['update'])){
                 if($fileSize < 5000000){
                     //var_dump(basename($imageName));
 
-                    $fileNewName = "../public/landlordprof/".$imageName;
+                    $fileNewName = "public/landlordprof/".$imageName;
                     
                     $uploaded = move_uploaded_file($fileTmpName,$fileNewName);
                     
@@ -43,25 +43,23 @@ if(isset($_POST['update'])){
 
                         $results = mysqli_query($conn,$sql);
 
-                        header('Location:localhost/cs_project/landlordprofile.php?success=userUpdated');
+                        header('Location: landlordprofile.php?success=userUpdated');
                     exit;
                     }
 
 
                 }else{
-                    header('Location:./landlordprofile.php?error=invalidFileSize');
+                    header('Location: landlordprofile.php?error=invalidFileSize');
                     exit;
                 }
                 exit;
             }else{
-                header('Location:./landlordprofile.php?error=invalidFileType');
+                header('Location: landlordprofile.php?error=invalidFileType');
                 exit;
             }
-            
-
 
         }else{
-            header('Location:controllers/landlordprofile.php?error=emptyNameAndEmail');
+            header('Location: landlordprofile.php?error=emptyNameAndEmail');
             exit;
         }
         

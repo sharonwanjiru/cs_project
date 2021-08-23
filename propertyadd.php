@@ -122,8 +122,21 @@ if (isset($_POST['submit'])){
         <li class=nav><a  href="welcomelandlord.php">Home</a></li>
         <li class=nav><a href="landlordprofile.php">Profile</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
+        <?php
+        if (empty($_SESSION['image'])) {
+          ?>
+          <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/nophoto.jpg" alt="" 
+                width="50px" height="50px"></li>
+          <?php  
+      }
+      else
+      {
+        ?>
         <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
                 width="50px" height="50px"></li>
+                <?php
+                }
+                ?>
         </ul>
 
     <form  id="application" action="" method="post" enctype='multipart/form-data'>
