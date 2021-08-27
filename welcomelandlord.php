@@ -60,14 +60,28 @@ if (empty($_SESSION['lanid'])) {
         <li class=nav><a href="landlordprofile.php">Profile</a></li>
         <li class=nav><a href="propertyadd.php">Addhouse</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
+       <?php
+        if (empty($_SESSION['image'])) {
+          ?>
+          <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/nophoto.jpg" alt="" 
+                width="50px" height="50px"></li>
+          <?php  
+      }
+      else
+      {
+        ?>
         <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
                 width="50px" height="50px"></li>
+                <?php
+                }
+                ?>
+                
         </ul>
+  
 
   <div class="container">
     <div class="row">
       
-
         <!-- Display messages -->
         <?php if (isset($_SESSION['message'])): ?>
         <div class="alert <?php echo $_SESSION['type'] ?>">
@@ -79,8 +93,9 @@ if (empty($_SESSION['lanid'])) {
         </div>
         <?php endif;?>
         <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
+      
         <h2> Property List</h2>
-       
+        
         <table class="table table-hover">
       <thead>
     <tr>
