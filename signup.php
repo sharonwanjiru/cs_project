@@ -43,9 +43,9 @@
 </head>
 <body>
 <ul class=navi>
-        <li class=nav><a  href="welcomelandlord.php">Home</a></li>
-        <li class=nav><a href="landlordprofile.php">About</a></li>
-        <li class= nav><a href="logout.php">Contacts</a></li>
+        <li class=nav><a  href=#>Home</a></li>
+        <li class=nav><a href=#>About</a></li>
+        <li class= nav><a href=#>Contacts</a></li>
         </ul>
 		<div class="container">
 	<fieldset class="choose">

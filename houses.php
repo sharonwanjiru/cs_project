@@ -1,6 +1,4 @@
-
-<?php
- include 'controllers/landlordcontroller.php';
+<?php include 'controllers/landlordcontroller.php';
 
 ?>
 <?php
@@ -9,26 +7,19 @@ if (empty($_SESSION['lanid'])) {
     header('location: landlordlogin.php');
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>PROPERTIES</title>
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="datatable/dataTable.bootstrap.min.css">
-	<style>
-		.height10{
-			height:15px;
-		}
-		.mtop10{
-			margin-top:15px;
-		}
-		.modal-label{
-			position:relative;
-			top:7px
-		}
-    .navi {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="main.css">-->
+  <title>Nyumba</title>
+  <style>
+.navi {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -59,28 +50,22 @@ if (empty($_SESSION['lanid'])) {
   border-radius: 160px;
   overflow: hidden;
 }
-.footer{
-  background:#708090;
-
-}
 .footer .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(0.1rem, 1fr));
     gap:1.5rem;
-  
 }
 
 .footer .box-container .box h3{
     padding:.5rem 0;
     font-size: 2.0rem;
     color:var(--black);
-    font-weight:bold;
 }
 
 .footer .box-container .box a{
     display: block;
     padding:.2rem 0;
-    font-size: 2.0rem;
+    font-size: 1.0rem;
     color:var(--light-color);
 }
 
@@ -97,7 +82,6 @@ if (empty($_SESSION['lanid'])) {
     padding:.5rem;
     padding-top: 1.5rem;
     margin-top: 1.5rem;
-   
 }
 
 .footer .credit span{
@@ -106,14 +90,16 @@ if (empty($_SESSION['lanid'])) {
 .heading{
   text-align: center;
 }
-	</style>
+</style>
 </head>
+
 <body>
 <ul class=navi>
         <li class=nav><a  href="welcomelandlord.php">Home</a></li>
         <li class=nav><a href="landlordprofile.php">Profile</a></li>
+        <li class=nav><a href="propertyadd.php">Addhouse</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
- <?php
+       <?php
         if (empty($_SESSION['image'])) {
           ?>
           <li class=nav style="float:right"> <img class="rounded-corners" src="public/landlordprof/nophoto.jpg" alt="" 
@@ -129,10 +115,13 @@ if (empty($_SESSION['lanid'])) {
                 }
                 ?>
                 
-  </ul>
+        </ul>
   
 
-<div class="container">
+  <div class="container">
+    <!--<div class="row">-->
+      
+        <!-- Display messages -->
         <?php if (isset($_SESSION['message'])): ?>
         <div class="alert <?php echo $_SESSION['type'] ?>">
           <?php
@@ -143,100 +132,62 @@ if (empty($_SESSION['lanid'])) {
         </div>
         <?php endif;?>
         <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
-	<h1 class="page-header text-center"> YOUR PROPERTIES</h1>
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<div class="row">
-			<?php
-				if(isset($_SESSION['error'])){
-					echo
-					"
-					<div class='alert alert-danger text-center'>
-						<button class='close'>&times;</button>
-						".$_SESSION['error']."
-					</div>
-					";
-					unset($_SESSION['error']);
-				}
-				if(isset($_SESSION['success'])){
-					echo
-					"
-					<div class='alert alert-success text-center'>
-						<button class='close'>&times;</button>
-						".$_SESSION['success']."
-					</div>
-					";
-					unset($_SESSION['success']);
-				}
-			?>
-			</div>
-			<div class="row">
-				<a href="#addnew" data-toggle="modal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> New</a>
-				
-			</div>
-			<div class="height10">
-			</div>
-			<div class="row">
-				<table id="myTable" class="table table-bordered table-striped">
-					<thead>
-						<th>ID</th>
-						<th>Type</th>
-						<th>Location</th>
-						<th>Address</th>
-            <th>Rooms</th>
-						<th>Action</th>
-					</thead>
-					<tbody>
-						<?php
-							include_once('config/db.php');
-              $currentUser = $_SESSION['lanid'];
-							$sql = "SELECT * FROM houses where lanid=$currentUser";
+      
+        <h2 class="heading"> Property List</h2>
+        
+        <table class="table table-hover">
+      <thead>
+    <tr>
+      <th scope="col">Location</th>
+      <th scope="col">bedrooms</th>
+      <th scope="col">parking</th>
+      <th scope="col">Kitchen</th>
+      <th scope="col">bathroom</th>
+      <th scope="col">address</th>
+      <th scope="col">Extra Rooms</th>
+      <th scope="col">Price</th>
+      <th scope="col">Landlordphone</th>  
+      <th scope="col">image</th> 
+      <th scope="col">Update </th>   
+      <th scope="col">Delete</th>     
+    </tr>
+  </thead>
+  <tbody>  
+     
+    <?php 
+    require_once("config/db.php");
 
-							//use for MySQLi-OOP
-							$query = $conn->query($sql);
-							while($row = $query->fetch_assoc()){
-								echo 
-								"<tr>
-									<td>".$row['houseid']."</td>
-									<td>".$row['type']."</td>
-									<td>".$row['location']."</td>
-									<td>".$row['address']."</td>
-                  <td>".$row['rooms']."</td>
-									<td>
-										<a href='#edit_".$row['houseid']."' class='btn btn-success btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-edit'></span> Edit</a>
-										<a href='#delete_".$row['houseid']."' class='btn btn-danger btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span> Delete</a>
-									</td>
-								</tr>";
-								include('edit_delete_modal.php');
-							}
-							
+    $currentUser = $_SESSION['lanid'];
+    $query = "SELECT * FROM houses WHERE lanid ='$currentUser'";
+    //$query="SELECT * FROM houses";
+    $read=$conn->query($query);
+    while ($row=$read->fetch_assoc()){?>
+    <tr class="table-primary">
+      <td><?php echo $row['location']; ?></td>
+      <td><?php echo $row['bedrooms']; ?></td>
+      <td><?php echo $row['parking']; ?></td>
+      <td><?php echo $row['Kitchen']; ?></td>
+      <td><?php echo $row['bathroom']; ?></td>
+      <td><?php echo $row['address']; ?></td>
+      <td><?php echo $row['extrarooms']; ?></td>
+      <td><?php echo $row['price']; ?></td>
+      <td><?php echo $row['landlordphone']; ?></td>
+      <td><img src= "public/houses/<?php echo $row['image1']; ?>" width="200px" height="200px"></td>
+      <td><button class="btn btn-success">Update</button></td>
+		  <td><button class="btn btn-danger">Delete</button></td>   
+     
+    </tr>
+  
+    <?php } ?>
+  </tbody>
+</table>
 
-						?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
-<?php include('add_modal.php') ?>
-
-<script src="jquery/jquery.min.js"></script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<script src="datatable/jquery.dataTables.min.js"></script>
-<script src="datatable/dataTable.bootstrap.min.js"></script>
-<!-- generate datatable on our table -->
-<script>
-$(document).ready(function(){
-	//inialize datatable
-    $('#myTable').DataTable();
-
-    //hide alert
-    $(document).on('click', '.close', function(){
-    	$('.alert').hide();
-    })
-});
-</script>
-<?php if (!$_SESSION['verified']): ?>
+        <!--
+         <?php echo $_SESSION['image']; ?>
+        <img src="public/landlordprof/<?php echo $_SESSION['image']; ?>" alt="" 
+                width="100px" height="100px">-->
+        <!--for unactivated accounts -->
+        <?php if (!$_SESSION['verified']): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
             You need to verify your email address!
             Sign into your email account and click
@@ -248,9 +199,10 @@ $(document).ready(function(){
           <!--for unactivated ens here 
            <button class="btn btn-lg btn-primary btn-block">Activated</button -->
         <?php endif;?>
-</body>
-
-<section class="footer">
+    
+    <!--</div>-->
+  </div>
+  <section class="footer">
 
 <div class="box-container">
 
@@ -290,12 +242,8 @@ $(document).ready(function(){
 
 </div>
 
-<div class="credit"> copyright @ 2021 by <span>Sharon and Mercy</span> </div>
+<div class="credit"> copyright @ 2021 by <span>strathmore students</span> </div>
 
 </section>
-<style>
-.PP{
-	text-align: center;
-}
-</style>
+</body>
 </html>

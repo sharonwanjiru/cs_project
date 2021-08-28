@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
     <head>
         <title>Password Recovery</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="main.css">
+       
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
