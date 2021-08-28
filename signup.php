@@ -43,18 +43,17 @@
 </head>
 <body>
 <ul class=navi>
-        <li class=nav><a  href="welcomelandlord.php">Home</a></li>
-        <li class=nav><a href="landlordprofile.php">About</a></li>
-        <li class= nav><a href="logout.php">Contacts</a></li>
+        <li class=nav><a  href=#>Home</a></li>
+        <li class=nav><a href=#>About</a></li>
+        <li class= nav><a href=#>Contacts</a></li>
         </ul>
 		<div class="container">
 	<fieldset class="choose">
 	<div >
 		<h1 class="choo">REGISTER AS:</h1>
-	
+		<a href="adminsignup.php" title= "register"  ><p><input type="submit" name="admin" value="ADMIN"  class="btn btn-primary btn-lg"></p></a> 
 		<a href="tenantsignup.php" title= "register" ><p><input type="submit" name="admin" value="TENANT"  class="btn btn-primary btn-lg"></p></a> 
-
-		<a href="landlordsignup.php" title= "register"  ><p><input type="submit" name="admin" value="LANLORD"  class="btn btn-primary btn-lg"></p></a> 
+    <a href="landlordsignup.php" title= "register"  ><p><input type="submit" name="admin" value="LANLORD"  class="btn btn-primary btn-lg"></p></a> 
 	</div>
 </fieldset>
 </div>
