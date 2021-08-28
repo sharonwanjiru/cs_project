@@ -13,13 +13,13 @@ if (isset($_GET['token'])) {
         $query = "UPDATE tenants SET verified=1 WHERE token='$token'";
 
         if (mysqli_query($conn, $query)) {
-            $_SESSION['tenantid'] = $user['tenantid'];
+            $_SESSION['tenantid'] = $user['lanid'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['verified'] = true;
             $_SESSION['message'] = "Your email address has been verified successfully";
             $_SESSION['type'] = 'alert-success';
-            header('location: welcomelandlord.php');
+            header('location: tenantindex.php');
             exit(0);
         }
     } else {

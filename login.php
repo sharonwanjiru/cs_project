@@ -18,6 +18,15 @@
     <?php endforeach;?>
   </div>
 <?php endif;?>
+<?php if (isset($_SESSION['message'])): ?>
+        <div class="alert <?php echo $_SESSION['type'] ?>">
+          <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+            unset($_SESSION['type']);
+          ?>
+        </div>
+   <?php endif;?>
 </head>
 <body>
   <div class="container">
@@ -26,8 +35,8 @@
         <h3 class="text-center form-title">Login</h3>
         <form action="login.php" method="post">
           <div class="form-group">
-            <label>Username or Email</label>
-            <input type="text" name="username" class="form-control form-control-lg" value="<?php echo $username; ?>">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control form-control-lg" value="<?php echo $username; ?>">
           </div>
           <div class="form-group">
             <label>Password</label>
