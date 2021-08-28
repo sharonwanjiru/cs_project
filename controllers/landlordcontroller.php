@@ -54,10 +54,10 @@ if (isset($_POST['signup-btn'])) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['verified'] = false;
-            $_SESSION['message'] = 'You are logged in!';
+            $_SESSION['message'] = 'You are registered check email!';
             $_SESSION['type'] = 'alert-success';
             echo "<script>alert('Successfully registered.');</script>";
-            header('location: welcomelandlord.php');
+            header('location: landlordlogin.php');
 
         } else {
             $_SESSION['error_msg'] = "Database error: Could not register user";

@@ -36,7 +36,7 @@ function sendVerificationEmail($userEmail, $token)
 
     <body>
       <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+        <p>Thank you for signing up to Enyumba. Please click on the link below to verify your account:.</p>
         <a href="http://localhost/cs_project/verify_email.php?token=' . $token . '">Verify Email!</a>
       </div>
     </body>
