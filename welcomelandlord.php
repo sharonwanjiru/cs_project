@@ -184,6 +184,10 @@ if (empty($_SESSION['lanid'])) {
 						<th>Location</th>
 						<th>Address</th>
             <th>Rooms</th>
+            <th>Price</th>
+            <th>Contact</th>
+            <th>Description</th>
+           
 						<th>Action</th>
 					</thead>
 					<tbody>
@@ -191,6 +195,7 @@ if (empty($_SESSION['lanid'])) {
 							include_once('config/db.php');
               $currentUser = $_SESSION['lanid'];
 							$sql = "SELECT * FROM houses where lanid=$currentUser";
+             
 
 							//use for MySQLi-OOP
 							$query = $conn->query($sql);
@@ -202,6 +207,10 @@ if (empty($_SESSION['lanid'])) {
 									<td>".$row['location']."</td>
 									<td>".$row['address']."</td>
                   <td>".$row['rooms']."</td>
+                  <td>".$row['price']."</td>
+                  <td>".$row['landlordphone']."</td>
+                  <td>".$row['description']."</td>
+       
 									<td>
 										<a href='#edit_".$row['houseid']."' class='btn btn-success btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-edit'></span> Edit</a>
 										<a href='#delete_".$row['houseid']."' class='btn btn-danger btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-trash'></span> Delete</a>
