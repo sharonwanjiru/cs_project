@@ -7,5 +7,5 @@ unset($_SESSION['tenantid']);
 unset($_SESSION['username']);
 unset($_SESSION['email']);
 unset($_SESSION['verify']);
-header("location: signup.php");
+header("location: index.php");
 ?>

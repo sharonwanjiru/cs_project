@@ -1,7 +1,7 @@
 <?php
 $dbserver="localhost";
 $dbuser="root";
-$password="Memusi2020";
+$password="";
 $db = "cs_project";
 
 $conn=mysqli_connect($dbserver,$dbuser,$password,$db);

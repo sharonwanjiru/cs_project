@@ -46,7 +46,7 @@
             <button type="submit" name="login-btn" class="btn btn-lg btn-block">Login</button>
           </div>
         </form>
-        <p>Don't yet have an account? <a href="signup.php">Sign up</a></p>
+        <p>Don't yet have an account? <a href="tenantsignup.php">Sign up</a></p>
         <p><a href="tenantresetpass.php">Forgot your password?</a></p>
       </div>
     </div>
