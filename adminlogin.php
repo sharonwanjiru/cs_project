@@ -5,12 +5,12 @@
 		<meta charset="utf-8">
 		<title>Login</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-		<link href="admin.css" rel="stylesheet" type="text/css">
+		<link href="css/admin.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="login">
 			<h1>Login</h1>
-			<form action="admincontroller2.php" method="post">
+			<form action="adminpanel.php" method="post">
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>

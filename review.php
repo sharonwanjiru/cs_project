@@ -50,8 +50,8 @@
 </head>
 <body>
 <ul class=navi>
-        <li class=nav><a  href="welcomelandlord.php">Home</a></li>
-        <li class=nav><a href="landlordprofile.php">Profile</a></li>
+        <li class=nav><a  href="tenantindex.php">Home</a></li>
+        <li class=nav><a href="tenantprofile.php">Profile</a></li>
         <li class= nav><a href="logout.php">Logout</a></li>
  <?php
         if (empty($_SESSION['image'])) {
@@ -137,7 +137,7 @@
     				</div>
     				<div class="col-sm-4 text-center">
     					<h3 class="mt-4 mb-3">Write Review Here</h3>
-    					<button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button>
+    					<button type="button" name="add_review" id="add_review" class="btn btn-dark">Review</button>
     				</div>
     			</div>
     		</div>
@@ -190,7 +190,7 @@
     }
     .star-light
     {
-        color:#e9ecef;
+        color: #333;
     }
 
     }

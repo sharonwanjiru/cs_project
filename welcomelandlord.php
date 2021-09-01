@@ -186,6 +186,7 @@ if (empty($_SESSION['lanid'])) {
             <th>Rooms</th>
             <th>Price</th>
             <th>Contact</th>
+            <th>Image</th>
             <th>Description</th>
            
 						<th>Action</th>
@@ -210,6 +211,11 @@ if (empty($_SESSION['lanid'])) {
                   <td>".$row['price']."</td>
                   <td>".$row['landlordphone']."</td>
                   <td>".$row['description']."</td>
+                  <td><img src='public/houses/".$row['image']."'></td>
+                  
+                  
+                  
+
        
 									<td>
 										<a href='#edit_".$row['houseid']."' class='btn btn-success btn-sm' data-toggle='modal'><span class='glyphicon glyphicon-edit'></span> Edit</a>

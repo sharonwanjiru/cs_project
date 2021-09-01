@@ -114,8 +114,10 @@
                       enctype="multipart/form-data"
                 >
                     <?php
-                        $currentUser = $_SESSION['username'];
-                        $sql = "SELECT * FROM landlords WHERE username ='$currentUser'";
+                       
+                        $lanid = $_SESSION['lanid'];
+                       
+                        $sql = "SELECT * FROM landlords WHERE lanid ='$lanid'";
 
                         $gotResuslts = mysqli_query($conn,$sql);
 

@@ -5,7 +5,7 @@
     <title>ADMIN PANEL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
@@ -24,9 +24,16 @@
                     </a>
              </li>
              <li>
-                <a href="#">
+                <a href="adminview.php">
                     <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                    <span class="title">Users</span>
+                    <span class="title">Landlords</span>
+                    </a>
+
+             </li>
+             <li>
+                <a href="tenantview.php">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="title">Tenants</span>
                     </a>
 
              </li>
