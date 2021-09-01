@@ -142,7 +142,17 @@ if (empty($_SESSION['lanid'])) {
           ?>
         </div>
         <?php endif;?>
-        <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
+       
+         <?php if (!$_SESSION['verified']): ?>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            You need to verify your email address!
+            Sign into your email account and click
+            on the verification link we just emailed you
+            at
+            <strong><?php echo $_SESSION['email']; ?></strong>
+          </div>
+        <?php else: ?>
+          <h4>Welcome, <?php echo $_SESSION['username']; ?> to Enyumba</h4>
 	<h1 class="page-header text-center"> YOUR PROPERTIES</h1>
 	<div class="row">
 		<div class="col-sm-8 col-sm-offset-2">
@@ -186,8 +196,10 @@ if (empty($_SESSION['lanid'])) {
             <th>Rooms</th>
             <th>Price</th>
             <th>Contact</th>
-            <th>Image</th>
+            
+            <th>FloorSize</th>
             <th>Description</th>
+            <th>Image</th>
            
 						<th>Action</th>
 					</thead>
@@ -210,8 +222,9 @@ if (empty($_SESSION['lanid'])) {
                   <td>".$row['rooms']."</td>
                   <td>".$row['price']."</td>
                   <td>".$row['landlordphone']."</td>
+                  <td>".$row['floorsize']."</td>
                   <td>".$row['description']."</td>
-                  <td><img src='public/houses/".$row['image']."'></td>
+                  <td><img src='public/houses/".$row['image']."' width='200px' height='200px'></td>
                   
                   
                   
@@ -251,17 +264,6 @@ $(document).ready(function(){
     })
 });
 </script>
-<?php if (!$_SESSION['verified']): ?>
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            You need to verify your email address!
-            Sign into your email account and click
-            on the verification link we just emailed you
-            at
-            <strong><?php echo $_SESSION['email']; ?></strong>
-          </div>
-        <?php else: ?>
-          <!--for unactivated ens here 
-           <button class="btn btn-lg btn-primary btn-block">Activated</button -->
         <?php endif;?>
 </body>
 

@@ -9,6 +9,8 @@
 		$address = $_POST['address'];
 		$rooms = $_POST['rooms'];
 		$price = $_POST['price'];
+		$lanemail = $_SESSION['email'];
+		$floorsize = $_POST['floorsize'];
 		$landlordphone = $_POST['landlordphone'];
 		$description = $_POST['description'];
 		
@@ -19,7 +21,7 @@
 		
 
 
-		$sql = "INSERT INTO houses (lanid,type, location, address,rooms,price,landlordphone,description,image) VALUES ('$lanid','$type', '$location', '$address','$rooms', '$price', '$landlordphone','$description', '$tmp_file')";
+		$sql = "INSERT INTO houses (lanid,type, location, address,rooms,price,landlordphone,lanemail,floorsize,description,image) VALUES ('$lanid','$type', '$location', '$address','$rooms', '$price', '$landlordphone','$lanemail','$floorsize', '$description','$tmp_file')";
 
 		//use for MySQLi OOP
 		if($conn->query($sql)){
