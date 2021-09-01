@@ -44,9 +44,15 @@
               </a>      
              </li>
              <li>
-                <a href="#">
+                <a href="changepassword.php">
                     <span class="icon"><i class="fa fa-key" aria-hidden="true"></i></span>
                     <span class="title">Password</span>
+                    </a>
+             </li>
+             <li>
+                <a href="adminhouse.php">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">AdminHouse</span>
                     </a>
              </li>
              <li>

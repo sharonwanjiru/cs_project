@@ -201,6 +201,8 @@ if(!$result){
 			$rooms = $property_result['rooms'];
 			$price = $property_result['price'];
 			$landlordphone = $property_result['landlordphone'];
+      $lanemail = $property_result['lanemail'];
+			$floorsize = $property_result['floorsize'];
 			$description = $property_result['description'];
 			$image = $property_result['image'];
 			

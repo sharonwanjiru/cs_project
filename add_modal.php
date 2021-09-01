@@ -51,7 +51,7 @@
 						<label class="control-label modal-label">Price:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="number" class="form-control" name="price" required>
+						<input type="number" class="form-control" name="price" max="100000" required>
 					</div>
 				</div>
 				<div class="row form-group">
@@ -60,6 +60,15 @@
 					</div>
 					<div class="col-sm-10">
 						<input type="number" class="form-control" name="landlordphone" required>
+					</div>
+				</div>
+		
+				<div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">FloorSize:</label>
+					</div>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="floorsize" required>
 					</div>
 				</div>
 				<div class="row form-group">
