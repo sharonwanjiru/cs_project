@@ -3,8 +3,9 @@ require_once 'lansendemails.php';
 session_start();
 $username = "";
 $email = "";
-
 $errors = [];
+
+
 
 $conn = new mysqli('localhost', 'root', '', 'cs_project');
 
@@ -54,11 +55,9 @@ if (isset($_POST['signup-btn'])) {
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['verified'] = false;
-            $_SESSION['message'] = 'You are registered check email!';
+            $_SESSION['message'] = 'You are Registered check email for confirmation!';
             $_SESSION['type'] = 'alert-success';
-            echo "<script>alert('Successfully registered.');</script>";
             header('location: landlordlogin.php');
-
         } else {
             $_SESSION['error_msg'] = "Database error: Could not register user";
         }
@@ -73,12 +72,11 @@ if (isset($_POST['login-btn'])) {
     if (empty($_POST['password'])) {
         $errors['password'] = 'Password required';
     }
-    //$username = $_POST['username'];
-     $email = $_POST['email'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
     if (count($errors) === 0) {
-        $query = "SELECT * FROM landlords WHERE email=? OR username=? LIMIT 1";
+        $query = "SELECT * FROM landlords WHERE email=?  OR username=? LIMIT 1";
         $stmt = $conn->prepare($query);
         $stmt->bind_param('ss', $email, $password);
 
